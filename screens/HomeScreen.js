@@ -4,6 +4,8 @@ import tw from "twrnc";
 import ScreenWrapper from "../components/ScreenWrapper";
 import { colors } from "../themes";
 import randomImage from "../assets/images/random";
+import EmptyList from "../components/EmptyList";
+import { useNavigation } from "@react-navigation/native";
 
 const items = [
   {
@@ -39,6 +41,7 @@ const items = [
 ];
 
 export default function HomeScreen() {
+  const navigation = useNavigation()
   return (
     <ScreenWrapper style={tw`flex-1`}>
       <View style={tw`flex-row justify-between items-center p-4`}>
@@ -69,7 +72,7 @@ export default function HomeScreen() {
           <TouchableOpacity
             style={tw`p-2 px-3 bg-white border border-gray-200 rounded-full`}
           >
-            <Text style={tw`${colors.heading}`}>Add Trip</Text>
+            <Text onPress={() => navigation.navigate('AddTrip')  } style={tw`${colors.heading}`}>Add Trip</Text>
           </TouchableOpacity>
         </View>
 
@@ -78,6 +81,7 @@ export default function HomeScreen() {
             keyExtractor={(items) => items.id}
             data={items}
             numColumns={2}
+            ListEmptyComponent={<EmptyList message={"you haven't recorded any trip yet"}/>}
             columnWrapperStyle={{
               justifyContent: "space-between",
             }}
@@ -90,7 +94,7 @@ export default function HomeScreen() {
                 >
                   <View>
                     <Image
-                      source={randomImage}
+                      source={randomImage()}
                       style={tw`w-36 h-36 mb-2`}
                     />
                     <Text style={tw`${colors.heading} font-bold`}>
