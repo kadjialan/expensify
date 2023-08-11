@@ -4,6 +4,7 @@ import HomeScreen from "../screens/HomeScreen";
 import LoginScreen from "../screens/LoginScreen";
 import AddTripScreen from "../screens/AddTripScreen";
 import AddExpenseScreen from "../screens/AddExpenseScreen";
+import TripExpenseScreens from "../screens/TripExpenseScreens";
 
 const Stack = createNativeStackNavigator();
 export default function AppNavigation() {
@@ -31,6 +32,13 @@ export default function AppNavigation() {
           options={{ headerShown: false }}
           name="AddExpense"
           component={AddExpenseScreen}
+        />
+
+
+<Stack.Screen
+          options={{ headerShown: false }}
+          name="TripExpenses"
+          component={TripExpenseScreens}
         />
       </Stack.Navigator>
     </NavigationContainer>

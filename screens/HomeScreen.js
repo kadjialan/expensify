@@ -89,7 +89,7 @@ export default function HomeScreen() {
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
               return (
-                <TouchableOpacity
+                <TouchableOpacity onPress={() => navigation.navigate('TripExpenses' ,{...item})}
                   style={tw`bg-white p-3 rounded-2xl mb-3 shadow-sm`}
                 >
                   <View>
