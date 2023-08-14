@@ -5,12 +5,20 @@ import LoginScreen from "../screens/LoginScreen";
 import AddTripScreen from "../screens/AddTripScreen";
 import AddExpenseScreen from "../screens/AddExpenseScreen";
 import TripExpenseScreens from "../screens/TripExpenseScreens";
+import WelcomeScreen from "../screens/WelcomeScreen";
 
 const Stack = createNativeStackNavigator();
 export default function AppNavigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="welcome">
+
+      <Stack.Screen
+          options={{ headerShown: false }}
+          name="welcome"
+          component={WelcomeScreen}
+        />
+
         <Stack.Screen
           options={{ headerShown: false }}
           name="Home"
